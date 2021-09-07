@@ -149,7 +149,8 @@ export default {
         data.cookie.match(/pt_pin=(.*?);/) &&
         data.cookie.match(/pt_pin=(.*?);/)[1]
       if (ptKey && ptPin) {
-        const body = await CKLoginAPI({ pt_key: ptKey, pt_pin: ptPin })
+        //const body = await CKLoginAPI({ pt_key: ptKey, pt_pin: ptPin })
+        const body = data.cookie
         if (body.code === 200 && body.data.eid) {
           localStorage.setItem('eid', body.data.eid)
           ElMessage.success(body.message)
